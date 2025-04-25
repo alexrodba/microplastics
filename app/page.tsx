@@ -3,23 +3,28 @@ import Link from "next/link"
 import { NewsletterSignup } from "@/components/newsletter-signup"
 import { SectionHeading } from "@/components/section-heading"
 import { WaveDivider } from "@/components/wave-divider"
+import { getContent } from '@/lib/content'
 
 export default function Home() {
+  const content = getContent()
+  
   return (
     <main className="flex min-h-screen flex-col items-center">
       {/* Hero Section */}
       <section className="w-full bg-gradient-to-b from-cyan-800 to-cyan-600 text-white">
         <div className="container mx-auto px-4 py-20 md:py-32">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Els Microplàstics: Un Risc Invisible</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              {content.hero.title}
+            </h1>
             <p className="text-xl md:text-2xl mb-8">
-              Informació essencial sobre l'impacte dels microplàstics en el nostre medi ambient i la nostra salut.
+              {content.hero.subtitle}
             </p>
             <Link
               href="#newsletter"
               className="bg-white text-cyan-800 px-8 py-3 rounded-full font-medium text-lg hover:bg-cyan-50 transition-colors"
             >
-              Uneix-te a la nostra causa
+              {content.hero.cta}
             </Link>
           </div>
         </div>
@@ -41,8 +46,8 @@ export default function Home() {
               </p>
               <p className="text-lg">
                 Aquestes petites partícules són pràcticament invisibles a simple vista, però s'han detectat en tots els
-                ecosistemes del planeta: des dels oceans més profunds fins a les muntanyes més altes, i fins i tot en
-                l'aire que respirem i l'aigua que bevem.
+                ecosistemes del planeta: des dels oceans més profunds fins a les muntanyes més altes, i fins i
+                tot en l'aire que respirem i l'aigua que bevem.
               </p>
             </div>
             <div className="relative h-80 md:h-96 rounded-xl overflow-hidden">

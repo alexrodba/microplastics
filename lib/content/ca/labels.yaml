@@ -1,0 +1,61 @@
+# content/ca/labels.yaml
+hero:
+  title: "Els Microplàstics: Un Risc Invisible"
+  subtitle: "Informació essencial sobre l'impacte dels microplàstics en el nostre medi ambient i la nostra salut."
+  cta: "Uneix-te a la nostra causa"
+
+whatAre:
+  title: "Què són els microplàstics?"
+  content:
+    - "Els microplàstics són partícules de plàstic de menys de 5 mm de diàmetre. Poden provenir de diverses fonts, incloent la degradació de productes plàstics més grans, microesferes en productes cosmètics, o fibres sintètiques de la roba."
+    - "Aquestes petites partícules són pràcticament invisibles a simple vista, però s'han detectat en tots els ecosistemes del planeta: des dels oceans més profunds fins a les muntanyes més altes, i fins i tot en l'aire que respirem i l'aigua que bevem."
+
+environmentalImpact:
+  title: "Impacte Ambiental"
+  content:
+    - "Els microplàstics representen una amenaça greu per als ecosistemes marins i terrestres. Aquests contaminants persistents s'acumulen en els organismes vius i poden transferir-se a través de la cadena alimentària."
+    - "La fauna marina és especialment vulnerable, ja que molts animals confonen els microplàstics amb aliments. Això pot provocar bloquejos digestius, desnutrició i, en alguns casos, la mort."
+    - "A més, els microplàstics poden absorbir i concentrar contaminants químics tòxics presents a l'aigua, actuant com a vectors d'aquests compostos nocius."
+
+healthRisks:
+  title: "Riscos per a la Salut Humana"
+  content:
+    - "Els estudis científics han detectat microplàstics en el cos humà, incloent la sang, els pulmons i fins i tot la placenta. Encara que la investigació sobre els seus efectes en la salut humana està en curs, hi ha preocupacions significatives."
+    - "Els microplàstics poden contenir additius químics com ftalats i bisfenol A (BPA), coneguts per ser disruptors endocrins que poden afectar el sistema hormonal."
+    - "La inhalació de microplàstics a través de l'aire pot provocar inflamació pulmonar i estrès oxidatiu, mentre que la ingestió pot afectar el microbioma intestinal i potencialment contribuir a problemes digestius."
+
+sources:
+  title: "Fonts Principals de Microplàstics"
+  items:
+    cosmetics:
+      title: "Productes Cosmètics"
+      content: "Molts exfoliants, pastes de dents i productes de neteja facial contenen microesferes de plàstic que acaben als nostres sistemes d'aigua."
+    textiles:
+      title: "Tèxtils Sintètics"
+      content: "La roba feta de materials sintètics com el polièster allibera microfibres de plàstic cada vegada que es renta, contribuint significativament a la contaminació per microplàstics."
+    degradation:
+      title: "Degradació de Plàstics"
+      content: "Els productes plàstics més grans es fragmenten amb el temps a causa de l'exposició a la llum solar, l'erosió i altres factors ambientals, creant microplàstics secundaris."
+    tires:
+      title: "Pneumàtics"
+      content: "El desgast dels pneumàtics dels vehicles allibera partícules de microplàstic que són arrossegades per l'aigua de pluja fins als sistemes aquàtics."
+
+solutions:
+  title: "Què Podem Fer?"
+  subtitle: "Accions Individuals"
+  actions:
+    - "Reduir l'ús de plàstics d'un sol ús (bosses, ampolles, palletes, etc.)"
+    - "Evitar productes cosmètics i de neteja que continguin microesferes"
+    - "Preferir roba de fibres naturals com el cotó, el lli o la llana"
+    - "Utilitzar filtres de rentadora per capturar microfibres"
+
+newsletter:
+  title: "Uneix-te a la Nostra Causa"
+  content: "Subscriu-te a la nostra newsletter per rebre informació actualitzada sobre els microplàstics, investigacions recents i accions que pots prendre per reduir el seu impacte."
+
+footer:
+  copyright: "© {year} microplastics.cat - Tots els drets reservats"
+  links:
+    privacy: "Política de Privacitat"
+    contact: "Contacte"
+    about: "Sobre Nosaltres"
