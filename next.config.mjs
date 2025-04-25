@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true, // Required for static export
   },
+  basePath: '/microplastics', // Add this line - should match your repository name
 };
 
 export default nextConfig;
