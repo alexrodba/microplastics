@@ -1,12 +1,13 @@
 /** @type {import('next').NextConfig} */
-const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
+const basePath = process.env.BASE_PATH || '';
+console.log('Using basePath:', basePath);
 
 const nextConfig = {
   output: 'export', // Enables static site generation
   images: {
     unoptimized: true, // Required for static export
   },
-  basePath: isGithubActions ? '/microplastics' : '', // Use basePath on GitHub Pages
+  basePath,
 };
 
 export default nextConfig;
