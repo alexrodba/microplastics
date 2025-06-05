@@ -87,7 +87,7 @@ jobs:
         with:
           path: ./out
       - name: Export static site
-        run: npm run export
+        run: npm run build
 
   # Deployment job
   deploy:
