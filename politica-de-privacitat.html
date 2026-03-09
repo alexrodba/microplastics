@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacitat | microplastics.cat</title>
+  <meta name="description" content="Política de privacitat i protecció de dades de microplastics.cat, conforme al Reglament General de Protecció de Dades (RGPD)." />
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href="https://microplastics.cat/politica-de-privacitat.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #0a0e0f;
+      --bg2:     #0f1517;
+      --bg3:     #141c1e;
+      --border:  #1e2d30;
+      --accent:  #00c4a7;
+      --dim:     #4a6568;
+      --mid:     #7a9699;
+      --text:    #d4e8ea;
+      --head:    #eef6f7;
+      --mono:    'DM Mono', monospace;
+      --serif:   'DM Serif Display', serif;
+      --sans:    'Instrument Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      height: 64px;
+      background: rgba(10,14,15,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .nav-back {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--mid);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--accent); }
+
+    /* PAGE */
+    .page {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 120px clamp(1.5rem, 6vw, 3rem) 80px;
+    }
+
+    .page-tag {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: var(--head);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .last-updated {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--dim);
+      letter-spacing: 0.06em;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* TABLE OF CONTENTS */
+    .toc {
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      margin-bottom: 3rem;
+      overflow: hidden;
+    }
+
+    .toc summary {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.9rem 1.5rem;
+      background: var(--bg2);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    .toc summary::-webkit-details-marker { display: none; }
+
+    .toc summary::after {
+      content: '+';
+      font-size: 1rem;
+      color: var(--dim);
+      transition: transform 0.2s;
+    }
+
+    .toc[open] summary::after {
+      content: '−';
+    }
+
+    .toc ol {
+      list-style: none;
+      counter-reset: toc;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding: 0.75rem 1.5rem 1rem;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+    }
+
+    .toc li {
+      counter-increment: toc;
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+      padding: 0.25rem 0;
+    }
+
+    .toc li::before {
+      content: counter(toc, decimal-leading-zero);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--dim);
+      flex-shrink: 0;
+      margin-top: 0.25em;
+    }
+
+    .toc a {
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .toc a:hover { color: var(--accent); }
+
+    /* SECTIONS */
+    .policy-section {
+      margin-bottom: 3rem;
+      scroll-margin-top: 80px;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      color: var(--head);
+      margin-bottom: 1rem;
+      padding-top: 0.5rem;
+    }
+
+    p {
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    strong { color: var(--head); font-weight: 600; }
+
+    a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { color: #00dfc0; }
+
+    /* DATA TABLE */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.88rem;
+    }
+
+    .data-table th {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--bg2);
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    .data-table tr:nth-child(even) td { background: var(--bg2); }
+
+    /* RIGHTS BOX */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 1.5rem 0;
+    }
+
+    @media (max-width: 520px) {
+      .rights-grid { grid-template-columns: 1fr; }
+    }
+
+    .right-item {
+      background: var(--bg2);
+      padding: 1.25rem;
+    }
+
+    .right-name {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .right-desc {
+      font-size: 0.85rem;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+
+    /* HIGHLIGHT */
+    .info-box {
+      border-left: 3px solid var(--accent);
+      background: rgba(0,196,167,0.04);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0 2px 2px 0;
+    }
+
+    .info-box p { margin: 0; font-size: 0.92rem; color: var(--text); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem clamp(1.5rem, 6vw, 3rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--dim);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">microplastics.cat</a>
+    <a href="/" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M11 7H3M6 4L3 7l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Tornar a l'inici
+    </a>
+  </nav>
+
+  <main class="page">
+
+    <div class="page-tag">Legal</div>
+    <h1>Política de Privacitat</h1>
+    <p class="last-updated">Darrera actualització: juny de 2025 · Versió 1.0</p>
+
+    <!-- TOC -->
+    <details class="toc" aria-label="Índex de continguts">
+      <summary>Índex de continguts</summary>
+      <ol>
+        <li><a href="#responsable">Qui és el responsable del tractament</a></li>
+        <li><a href="#dades">Quines dades recollim</a></li>
+        <li><a href="#finalitat">Per a què les fem servir</a></li>
+        <li><a href="#base-legal">Base legal del tractament</a></li>
+        <li><a href="#encarregats">Encarregats del tractament (tercers)</a></li>
+        <li><a href="#conservacio">Quant de temps conservem les dades</a></li>
+        <li><a href="#drets">Els teus drets</a></li>
+        <li><a href="#seguretat">Seguretat</a></li>
+        <li><a href="#menors">Menors d'edat</a></li>
+        <li><a href="#cookies">Galetes (cookies)</a></li>
+        <li><a href="#canvis">Canvis en aquesta política</a></li>
+        <li><a href="#contacte">Contacte i reclamacions</a></li>
+      </ol>
+    </details>
+
+    <!-- 1 -->
+    <section class="policy-section" id="responsable">
+      <h2>1. Qui és el responsable del tractament</h2>
+      <p>El responsable del tractament de les dades personals recollides a través d'aquest lloc web és:</p>
+      <table class="data-table">
+        <tr>
+          <th>Camp</th>
+          <th>Dades</th>
+        </tr>
+        <tr>
+          <td><strong>Responsable</strong></td>
+          <td>Àlex Rodríguez Bacardit (a títol personal)</td>
+        </tr>
+        <tr>
+          <td><strong>Lloc web</strong></td>
+          <td><a href="https://microplastics.cat">microplastics.cat</a></td>
+        </tr>
+        <tr>
+          <td><strong>Correu de contacte</strong></td>
+          <td><a href="/cdn-cgi/l/email-protection#82ebece4edc2efebe1f0edf2eee3f1f6ebe1f1ace1e3f6"><span class="__cf_email__" data-cfemail="e58c8b838aa5888c86978a95898496918c8696cb868491">[email&#160;protected]</span></a></td>
+        </tr>
+        <tr>
+          <td><strong>País</strong></td>
+          <td>Espanya (Catalunya)</td>
+        </tr>
+      </table>
+      <div class="info-box">
+        <p>Aquest lloc web és gestionat per una persona física a títol privat, sense ànim de lucre. No és una empresa ni una entitat jurídica. El tractament de dades es realitza de conformitat amb el Reglament (UE) 2016/679 (RGPD) i la Llei Orgànica 3/2018 (LOPDGDD).</p>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="policy-section" id="dades">
+      <h2>2. Quines dades recollim</h2>
+      <p>Aquest lloc web recull únicament les dades que tu proporciones de manera voluntària a través del formulari de subscripció a la newsletter:</p>
+      <table class="data-table">
+        <tr>
+          <th>Dada</th>
+          <th>Obligatòria</th>
+          <th>Finalitat</th>
+        </tr>
+        <tr>
+          <td><strong>Adreça de correu electrònic</strong></td>
+          <td>Sí</td>
+          <td>Enviament de la newsletter</td>
+        </tr>
+        <tr>
+          <td>Consentiment RGPD i data</td>
+          <td>Sí</td>
+          <td>Registre del consentiment exprés</td>
+        </tr>
+        <tr>
+          <td>Confirmació de doble opt-in</td>
+          <td>Sí (automàtic)</td>
+          <td>Verificació de la titularitat de l'adreça</td>
+        </tr>
+      </table>
+      <p>No recollim nom, cognom, telèfon, adreça postal ni cap altra dada personal. No fem seguiment de la teva navegació ni fem servir eines d'analítica web de tercers (com Google Analytics).</p>
+    </section>
+
+    <!-- 3 -->
+    <section class="policy-section" id="finalitat">
+      <h2>3. Per a què les fem servir</h2>
+      <p>La única finalitat del tractament és l'enviament periòdic d'una newsletter informativa sobre microplàstics, contaminació per plàstics i medi ambient. La freqüència prevista és d'aproximadament un correu al mes.</p>
+      <p>No farem mai servir les teves dades per a:</p>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.4rem; margin: 0.5rem 0 1rem 0;">
+        <li style="display:flex; gap:0.75rem; font-size:0.92rem; color: var(--mid)"><span style="color:var(--accent2)">✕</span> Cedir-les o vendre-les a tercers</li>
+        <li style="display:flex; gap:0.75rem; font-size:0.92rem; color: var(--mid)"><span style="color:var(--accent2)">✕</span> Publicitat o màrqueting comercial</li>
+        <li style="display:flex; gap:0.75rem; font-size:0.92rem; color: var(--mid)"><span style="color:var(--accent2)">✕</span> Elaboració de perfils o presa de decisions automatitzades</li>
+        <li style="display:flex; gap:0.75rem; font-size:0.92rem; color: var(--mid)"><span style="color:var(--accent2)">✕</span> Finalitats diferents de les indicades en aquest document</li>
+      </ul>
+    </section>
+
+    <!-- 4 -->
+    <section class="policy-section" id="base-legal">
+      <h2>4. Base legal del tractament</h2>
+      <p>El tractament de les teves dades es basa en el teu <strong>consentiment exprés</strong> (art. 6.1.a RGPD), atorgat en el moment de marcar la casella de verificació del formulari de subscripció i confirmar el doble opt-in.</p>
+      <p>Tens dret a retirar aquest consentiment en qualsevol moment, sense que això afecti la licitud del tractament realitzat amb anterioritat. Pots fer-ho de dues maneres:</p>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.4rem; margin: 0.5rem 0 1rem 0;">
+        <li style="display:flex; gap:0.75rem; font-size:0.92rem;"><span style="color:var(--accent)">→</span> Fent clic a l'enllaç de baixa que trobaràs al peu de cada newsletter</li>
+        <li style="display:flex; gap:0.75rem; font-size:0.92rem;"><span style="color:var(--accent)">→</span> Enviant un correu a <a href="/cdn-cgi/l/email-protection#5e373038311e33373d2c312e323f2d2a373d2d703d3f2a"><span class="__cf_email__" data-cfemail="a0c9cec6cfe0cdc9c3d2cfd0ccc1d3d4c9c3d38ec3c1d4">[email&#160;protected]</span></a></li>
+      </ul>
+    </section>
+
+    <!-- 5 -->
+    <section class="policy-section" id="encarregats">
+      <h2>5. Encarregats del tractament (tercers)</h2>
+      <p>Per gestionar l'enviament de la newsletter fem servir <strong>Brevo</strong> (anteriorment Sendinblue), una plataforma d'email màrqueting amb seu a França i operació a la Unió Europea.</p>
+      <table class="data-table">
+        <tr>
+          <th>Proveïdor</th>
+          <th>Funció</th>
+          <th>País</th>
+          <th>Garanties</th>
+        </tr>
+        <tr>
+          <td><a href="https://www.brevo.com" target="_blank" rel="noopener">Brevo (Sendinblue)</a></td>
+          <td>Gestió i enviament de newsletters</td>
+          <td>França (UE)</td>
+          <td>DPA firmada · Compliant RGPD</td>
+        </tr>
+        <tr>
+          <td><a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a></td>
+          <td>Allotjament estàtic del lloc web</td>
+          <td>EUA (adequació)</td>
+          <td>No processa dades personals dels usuaris</td>
+        </tr>
+      </table>
+      <p>Brevo actua com a encarregat del tractament en virtut del seu <a href="https://www.brevo.com/legal/termsofuse/" target="_blank" rel="noopener">Acord de Processament de Dades</a> (DPA), que compleix els requisits de l'art. 28 RGPD. Les dades <strong>no surten de la Unió Europea</strong>.</p>
+      <p>GitHub Pages únicament serveix fitxers HTML estàtics i no rep cap dada personal dels visitants d'aquest lloc.</p>
+    </section>
+
+    <!-- 6 -->
+    <section class="policy-section" id="conservacio">
+      <h2>6. Quant de temps conservem les dades</h2>
+      <p>Conservarem la teva adreça de correu electrònic mentre mantinguis la subscripció activa. En el moment en què et donis de baixa, les teves dades seran eliminades de la llista de Brevo en un termini màxim de <strong>30 dies</strong>.</p>
+      <p>Si sol·licites l'eliminació per correu electrònic, procedirem a la supressió en un termini màxim de <strong>72 hores</strong> i t'ho confirmarem per escrit.</p>
+    </section>
+
+    <!-- 7 -->
+    <section class="policy-section" id="drets">
+      <h2>7. Els teus drets</h2>
+      <p>D'acord amb el RGPD i la LOPDGDD, tens els drets següents respecte a les teves dades personals:</p>
+      <div class="rights-grid">
+        <div class="right-item">
+          <div class="right-name">Accés</div>
+          <div class="right-desc">Saber quines dades tenim sobre tu i com les tractem.</div>
+        </div>
+        <div class="right-item">
+          <div class="right-name">Rectificació</div>
+          <div class="right-desc">Corregir dades inexactes o incompletes.</div>
+        </div>
+        <div class="right-item">
+          <div class="right-name">Supressió</div>
+          <div class="right-desc">Sol·licitar que eliminem les teves dades ("dret a l'oblit").</div>
+        </div>
+        <div class="right-item">
+          <div class="right-name">Oposició</div>
+          <div class="right-desc">Oposar-te al tractament de les teves dades en qualsevol moment.</div>
+        </div>
+        <div class="right-item">
+          <div class="right-name">Limitació</div>
+          <div class="right-desc">Sol·licitar que limitem el tractament mentre resolem una incidència.</div>
+        </div>
+        <div class="right-item">
+          <div class="right-name">Portabilitat</div>
+          <div class="right-desc">Rebre les teves dades en format estructurat i llegible per màquina.</div>
+        </div>
+      </div>
+      <p>Per exercir qualsevol d'aquests drets, escriu a <a href="/cdn-cgi/l/email-protection#5c35323a331c31353f2e332c303d2f28353f2f723f3d28"><span class="__cf_email__" data-cfemail="177e797178577a7e746578677b7664637e746439747663">[email&#160;protected]</span></a> indicant el dret que vols exercir. Respondrem en un termini màxim de <strong>30 dies</strong>.</p>
+    </section>
+
+    <!-- 8 -->
+    <section class="policy-section" id="seguretat">
+      <h2>8. Seguretat</h2>
+      <p>Apliquem mesures tècniques i organitzatives adequades per protegir les teves dades personals contra l'accés no autoritzat, la pèrdua o la destrucció accidental:</p>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.4rem; margin: 0.5rem 0 1rem 0;">
+        <li style="display:flex; gap:0.75rem; font-size:0.92rem;"><span style="color:var(--accent)">→</span> Totes les comunicacions entre el teu navegador i el lloc web xifrades amb TLS (HTTPS)</li>
+        <li style="display:flex; gap:0.75rem; font-size:0.92rem;"><span style="color:var(--accent)">→</span> Les dades emmagatzemades a Brevo es protegeixen amb xifrat en repòs</li>
+        <li style="display:flex; gap:0.75rem; font-size:0.92rem;"><span style="color:var(--accent)">→</span> Doble opt-in per verificar la titularitat del correu electrònic</li>
+        <li style="display:flex; gap:0.75rem; font-size:0.92rem;"><span style="color:var(--accent)">→</span> Accés restringit a les dades: únicament el responsable del tractament</li>
+      </ul>
+    </section>
+
+    <!-- 9 -->
+    <section class="policy-section" id="menors">
+      <h2>9. Menors d'edat</h2>
+      <p>Aquest lloc web no va adreçat a menors de 14 anys. No recollim conscientment dades personals de menors. Si ets pare, mare o tutor i creus que un menor ha proporcionat dades sense el teu consentiment, posa't en contacte amb nosaltres a <a href="/cdn-cgi/l/email-protection#4e272028210e23272d3c213e222f3d3a272d3d602d2f3a"><span class="__cf_email__" data-cfemail="90f9fef6ffd0fdf9f3e2ffe0fcf1e3e4f9f3e3bef3f1e4">[email&#160;protected]</span></a> per procedir a la seva eliminació immediata.</p>
+    </section>
+
+    <!-- 10 -->
+    <section class="policy-section" id="cookies">
+      <h2>10. Galetes (cookies)</h2>
+      <p>Aquest lloc web <strong>no fa servir galetes</strong> de seguiment, analítica ni publicitat. No hi ha cap script de tercers que rastreja la teva navegació.</p>
+      <p>El teu navegador pot emmagatzemar galetes tècniques pròpies necessàries per al correcte funcionament del lloc (per exemple, per mantenir la sessió), però cap d'elles és de tercers ni s'utilitza per elaborar perfils o fer publicitat.</p>
+    </section>
+
+    <!-- 11 -->
+    <section class="policy-section" id="canvis">
+      <h2>11. Canvis en aquesta política</h2>
+      <p>Ens reservem el dret d'actualitzar aquesta política de privacitat per adaptar-la a canvis normatius o en el funcionament del lloc web. En cas de canvis substancials, ho notificarem als subscriptors de la newsletter abans que entrin en vigor, amb un mínim de 15 dies d'antelació.</p>
+      <p>La versió vigent sempre estarà disponible a <a href="https://microplastics.cat/politica-de-privacitat.html">microplastics.cat/politica-de-privacitat.html</a> amb la data de darrera actualització al capdamunt.</p>
+    </section>
+
+    <!-- 12 -->
+    <section class="policy-section" id="contacte">
+      <h2>12. Contacte i reclamacions</h2>
+      <p>Per a qualsevol consulta sobre aquesta política o per exercir els teus drets, posa't en contacte a:</p>
+      <div class="info-box">
+        <p><strong>Correu electrònic:</strong> <a href="/cdn-cgi/l/email-protection#a4cdcac2cbe4c9cdc7d6cbd4c8c5d7d0cdc7d78ac7c5d0"><span class="__cf_email__" data-cfemail="6f060109002f02060c1d001f030e1c1b060c1c410c0e1b">[email&#160;protected]</span></a><br/>
+        Respondrem en un termini màxim de 30 dies naturals.</p>
+      </div>
+      <p>Si consideres que el tractament de les teves dades no és conforme al RGPD, tens dret a presentar una reclamació davant l'autoritat de control competent, que a Espanya és l'<strong>Agència Espanyola de Protecció de Dades (AEPD)</strong>:</p>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.4rem; margin: 0.5rem 0;">
+        <li style="display:flex; gap:0.75rem; font-size:0.92rem;"><span style="color:var(--accent)">→</span> Web: <a href="https://www.aepd.es" target="_blank"
