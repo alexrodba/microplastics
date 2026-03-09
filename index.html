@@ -972,7 +972,8 @@
   <section style="background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
     <div class="section">
       <div class="section-label">02 — Tipologia</div>
-      <h2>Cinc tipus principals</h2>
+      <h2>Cinc tipus, i un subtipus a part</h2>
+      <p style="max-width:680px; margin-bottom: 3rem;">Els microplàstics es classifiquen en <strong>cinc categories principals</strong> segons la seva forma i origen: microesferes, microfibres, fragments, pellets i escumes. A banda d'aquests cinc tipus, els <strong>nanoplàstics</strong> constitueixen un subtipus diferenciat: mesuren menys d'1 micròmetre i, a diferència de la resta, poden travessar barreres biològiques com la hematoencefàlica.</p>
       <div class="types-grid">
         <div class="type-card">
           <svg class="type-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1019,13 +1020,13 @@
           <h3>Escumes</h3>
           <p>L'escuma de poliestirè (porexpan) es fragmenta en milers de partícules que s'escampen fàcilment pel vent i l'aigua.</p>
         </div>
-        <div class="type-card">
+        <div class="type-card" style="border-color: var(--accent2); opacity: 0.9;">
           <svg class="type-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="20" cy="20" r="10" stroke="currentColor" stroke-width="1.5"/>
             <path d="M14 14 L26 26 M26 14 L14 26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
-          <h3>Nanoplàstics</h3>
-          <p>Inferiors a 1 micròmetre, invisibles fins i tot al microscopi òptic. Capaces de travessar la barrera hematoencefàlica i penetrar en les cèl·lules.</p>
+          <h3>Nanoplàstics <span style="font-family: var(--mono); font-size: 0.65rem; font-weight: 400; color: var(--accent2); letter-spacing: 0.08em; text-transform: uppercase; vertical-align: middle; margin-left: 0.4em;">subtipus</span></h3>
+          <p>Inferiors a 1 micròmetre, invisibles fins i tot al microscopi òptic. A diferència dels cinc tipus anteriors, poden travessar la barrera hematoencefàlica i penetrar directament en les cèl·lules.</p>
         </div>
       </div>
     </div>
@@ -1177,13 +1178,14 @@
         <h2>Rep les darreres investigacions</h2>
         <p>Un correu al mes. Novetats científiques, regulació europea, i accions concretes que pots prendre. Sense spam, sense cessions de dades.</p>
         <form class="newsletter-form" id="newsletter-form" onsubmit="handleSubscribe(event)">
-          <input type="email" id="nl-email" placeholder="el.teu@correu.cat" required aria-label="Adreça de correu electrònic" />
+          <input type="text" id="nl-name" placeholder="El teu nom" autocomplete="given-name" aria-label="Nom" style="flex-basis: 100%;" />
+          <input type="email" id="nl-email" placeholder="el.teu@correu.cat" required autocomplete="email" aria-label="Adreça de correu electrònic" />
           <button type="submit" id="nl-btn">Subscriu-me</button>
+          <label class="gdpr-label" style="flex-basis: 100%; text-align: left;">
+            <input type="checkbox" id="nl-gdpr" required />
+            <span>He llegit i accepto la <a href="/politica-de-privacitat.html">política de privacitat</a>. Consento que el meu correu s'emmagatzemi a Brevo per rebre la newsletter.</span>
+          </label>
         </form>
-        <label class="gdpr-label">
-          <input type="checkbox" id="nl-gdpr" required />
-          <span>He llegit i accepto la <a href="/politica-de-privacitat.html">política de privacitat</a>. Consento que el meu correu s'emmagatzemi a Brevo per rebre la newsletter.</span>
-        </label>
         <div id="nl-message" class="nl-message" aria-live="polite"></div>
         <p class="newsletter-note">Protegit per doble opt-in · Pots donar-te de baixa en qualsevol moment · RGPD compliant</p>
       </div>
@@ -1192,7 +1194,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <span class="footer-logo">microplastics.cat — © 2025</span>
+    <span class="footer-logo">microplastics.cat — © 2026</span>
     <ul class="footer-links">
       <li><a href="#que-son">Què són</a></li>
       <li><a href="#impacte">Impacte</a></li>
@@ -1271,6 +1273,7 @@
       e.preventDefault();
 
       const email   = document.getElementById('nl-email').value.trim();
+      const name    = document.getElementById('nl-name').value.trim();
       const gdpr    = document.getElementById('nl-gdpr').checked;
       const btn     = document.getElementById('nl-btn');
       const msg     = document.getElementById('nl-message');
@@ -1301,6 +1304,7 @@
             // Double opt-in — Brevo will send a confirmation email automatically
             // if you have DOI enabled on the list in your Brevo dashboard.
             attributes: {
+              ...(name && { FIRSTNAME: name }),
               GDPR_CONSENT:      true,
               GDPR_CONSENT_DATE: new Date().toISOString(),
               GDPR_SOURCE:       'microplastics.cat newsletter form',
@@ -1311,6 +1315,7 @@
         if (res.status === 201 || res.status === 204) {
           msg.textContent = 'Fet! Revisa el teu correu per confirmar la subscripció.';
           msg.className = 'nl-message success';
+          document.getElementById('nl-name').value = '';
           document.getElementById('nl-email').value = '';
           document.getElementById('nl-gdpr').checked = false;
         } else if (res.status === 400) {
