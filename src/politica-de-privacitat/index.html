@@ -1,0 +1,277 @@
+---
+layout: base.njk
+title: "Política de Privacitat | microplastics.cat"
+description: "Política de privacitat i protecció de dades de microplastics.cat, conforme al Reglament General de Protecció de Dades (RGPD)."
+noindex: true
+---
+<style>
+  .page {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 120px clamp(1.5rem, 6vw, 3rem) 80px;
+  }
+
+  .page-tag {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .page h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .last-updated {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--dim);
+    letter-spacing: 0.06em;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .toc {
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    margin-bottom: 3rem;
+    overflow: hidden;
+  }
+
+  .toc summary {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.9rem 1.5rem;
+    background: var(--bg2);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+  }
+
+  .toc summary::-webkit-details-marker { display: none; }
+  .toc summary::after { content: '+'; font-size: 1rem; color: var(--dim); }
+  .toc[open] summary::after { content: '−'; }
+
+  .toc ol {
+    list-style: none;
+    counter-reset: toc;
+    padding: 0.75rem 1.5rem 1rem;
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc li {
+    counter-increment: toc;
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    padding: 0.25rem 0;
+  }
+
+  .toc li::before {
+    content: counter(toc, decimal-leading-zero);
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--dim);
+    flex-shrink: 0;
+    margin-top: 0.25em;
+  }
+
+  .toc a { color: var(--mid); text-decoration: none; transition: color 0.2s; }
+  .toc a:hover { color: var(--accent); }
+
+  .policy-section { margin-bottom: 3rem; scroll-margin-top: 80px; }
+
+  .page h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-top: 0.5rem;
+  }
+
+  .rights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin: 1.5rem 0;
+  }
+
+  @media (max-width: 520px) {
+    .rights-grid { grid-template-columns: 1fr; }
+  }
+
+  .right-item { background: var(--bg2); padding: 1.25rem; }
+
+  .right-name {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .right-desc { font-size: 0.85rem; color: var(--mid); line-height: 1.5; }
+
+  .page footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+</style>
+
+<main class="page">
+
+  <div class="page-tag">Legal</div>
+  <h1>Política de Privacitat</h1>
+  <p class="last-updated">Darrera actualització: juny de 2025 · Versió 1.0</p>
+
+  <details class="toc" aria-label="Índex de continguts">
+    <summary>Índex de continguts</summary>
+    <ol>
+      <li><a href="#responsable">Qui és el responsable del tractament</a></li>
+      <li><a href="#dades">Quines dades recollim</a></li>
+      <li><a href="#finalitat">Per a què les fem servir</a></li>
+      <li><a href="#base-legal">Base legal del tractament</a></li>
+      <li><a href="#encarregats">Encarregats del tractament (tercers)</a></li>
+      <li><a href="#conservacio">Quant de temps conservem les dades</a></li>
+      <li><a href="#drets">Els teus drets</a></li>
+      <li><a href="#seguretat">Seguretat</a></li>
+      <li><a href="#menors">Menors d'edat</a></li>
+      <li><a href="#cookies">Galetes (cookies)</a></li>
+      <li><a href="#canvis">Canvis en aquesta política</a></li>
+      <li><a href="#contacte">Contacte i reclamacions</a></li>
+    </ol>
+  </details>
+
+  <section class="policy-section" id="responsable">
+    <h2>1. Qui és el responsable del tractament</h2>
+    <p>El responsable del tractament de les dades personals recollides a través d'aquest lloc web és:</p>
+    <table class="data-table">
+      <tr><th>Camp</th><th>Dades</th></tr>
+      <tr><td><strong>Responsable</strong></td><td>Àlex Rodríguez Bacardit (a títol personal)</td></tr>
+      <tr><td><strong>Lloc web</strong></td><td><a href="https://microplastics.cat">microplastics.cat</a></td></tr>
+      <tr><td><strong>Correu de contacte</strong></td><td><a href="mailto:hola@microplastics.cat">hola@microplastics.cat</a></td></tr>
+      <tr><td><strong>País</strong></td><td>Espanya (Catalunya)</td></tr>
+    </table>
+    <div class="info-box">
+      <p>Aquest lloc web és gestionat per una persona física a títol privat, sense ànim de lucre. No és una empresa ni una entitat jurídica. El tractament de dades es realitza de conformitat amb el Reglament (UE) 2016/679 (RGPD) i la Llei Orgànica 3/2018 (LOPDGDD).</p>
+    </div>
+  </section>
+
+  <section class="policy-section" id="dades">
+    <h2>2. Quines dades recollim</h2>
+    <p>Aquest lloc web recull únicament les dades que tu proporciones de manera voluntària a través del formulari de subscripció a la newsletter:</p>
+    <table class="data-table">
+      <tr><th>Dada</th><th>Obligatòria</th><th>Finalitat</th></tr>
+      <tr><td><strong>Adreça de correu electrònic</strong></td><td>Sí</td><td>Enviament de la newsletter</td></tr>
+      <tr><td>Consentiment RGPD i data</td><td>Sí</td><td>Registre del consentiment exprés</td></tr>
+      <tr><td>Confirmació de doble opt-in</td><td>Sí (automàtic)</td><td>Verificació de la titularitat de l'adreça</td></tr>
+    </table>
+    <p>No recollim nom, cognom, telèfon, adreça postal ni cap altra dada personal. No fem seguiment de la teva navegació ni fem servir eines d'analítica web de tercers (com Google Analytics).</p>
+  </section>
+
+  <section class="policy-section" id="finalitat">
+    <h2>3. Per a què les fem servir</h2>
+    <p>La única finalitat del tractament és l'enviament periòdic d'una newsletter informativa sobre microplàstics, contaminació per plàstics i medi ambient. La freqüència prevista és d'aproximadament un correu al mes.</p>
+    <p>No farem mai servir les teves dades per a:</p>
+    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.4rem; margin: 0.5rem 0 1rem 0;">
+      <li style="display:flex; gap:0.75rem; font-size:0.92rem; color: var(--mid)"><span style="color:var(--accent2)">✕</span> Cedir-les o vendre-les a tercers</li>
+      <li style="display:flex; gap:0.75rem; font-size:0.92rem; color: var(--mid)"><span style="color:var(--accent2)">✕</span> Publicitat o màrqueting comercial</li>
+      <li style="display:flex; gap:0.75rem; font-size:0.92rem; color: var(--mid)"><span style="color:var(--accent2)">✕</span> Elaboració de perfils o presa de decisions automatitzades</li>
+      <li style="display:flex; gap:0.75rem; font-size:0.92rem; color: var(--mid)"><span style="color:var(--accent2)">✕</span> Finalitats diferents de les indicades en aquest document</li>
+    </ul>
+  </section>
+
+  <section class="policy-section" id="base-legal">
+    <h2>4. Base legal del tractament</h2>
+    <p>El tractament de les teves dades es basa en el teu <strong>consentiment exprés</strong> (art. 6.1.a RGPD), atorgat en el moment de marcar la casella de verificació del formulari de subscripció i confirmar el doble opt-in.</p>
+    <p>Tens dret a retirar aquest consentiment en qualsevol moment. Pots fer-ho de dues maneres:</p>
+    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.4rem; margin: 0.5rem 0 1rem 0;">
+      <li style="display:flex; gap:0.75rem; font-size:0.92rem;"><span style="color:var(--accent)">→</span> Fent clic a l'enllaç de baixa que trobaràs al peu de cada newsletter</li>
+      <li style="display:flex; gap:0.75rem; font-size:0.92rem;"><span style="color:var(--accent)">→</span> Enviant un correu a <a href="mailto:hola@microplastics.cat">hola@microplastics.cat</a></li>
+    </ul>
+  </section>
+
+  <section class="policy-section" id="encarregats">
+    <h2>5. Encarregats del tractament (tercers)</h2>
+    <p>Per gestionar l'enviament de la newsletter fem servir <strong>Brevo</strong> (anteriorment Sendinblue), una plataforma d'email màrqueting amb seu a França i operació a la Unió Europea.</p>
+    <table class="data-table">
+      <tr><th>Proveïdor</th><th>Funció</th><th>País</th><th>Garanties</th></tr>
+      <tr><td><a href="https://www.brevo.com" target="_blank" rel="noopener">Brevo (Sendinblue)</a></td><td>Gestió i enviament de newsletters</td><td>França (UE)</td><td>DPA firmada · Compliant RGPD</td></tr>
+      <tr><td><a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a></td><td>Allotjament estàtic del lloc web</td><td>EUA (adequació)</td><td>No processa dades personals dels usuaris</td></tr>
+    </table>
+    <p>Les dades <strong>no surten de la Unió Europea</strong>.</p>
+  </section>
+
+  <section class="policy-section" id="conservacio">
+    <h2>6. Quant de temps conservem les dades</h2>
+    <p>Conservarem la teva adreça de correu electrònic mentre mantinguis la subscripció activa. En el moment en què et donis de baixa, les teves dades seran eliminades de la llista de Brevo en un termini màxim de <strong>30 dies</strong>.</p>
+    <p>Si sol·licites l'eliminació per correu electrònic, procedirem a la supressió en un termini màxim de <strong>72 hores</strong>.</p>
+  </section>
+
+  <section class="policy-section" id="drets">
+    <h2>7. Els teus drets</h2>
+    <p>D'acord amb el RGPD i la LOPDGDD, tens els drets següents respecte a les teves dades personals:</p>
+    <div class="rights-grid">
+      <div class="right-item"><div class="right-name">Accés</div><div class="right-desc">Saber quines dades tenim sobre tu i com les tractem.</div></div>
+      <div class="right-item"><div class="right-name">Rectificació</div><div class="right-desc">Corregir dades inexactes o incompletes.</div></div>
+      <div class="right-item"><div class="right-name">Supressió</div><div class="right-desc">Sol·licitar que eliminem les teves dades ("dret a l'oblit").</div></div>
+      <div class="right-item"><div class="right-name">Oposició</div><div class="right-desc">Oposar-te al tractament de les teves dades en qualsevol moment.</div></div>
+      <div class="right-item"><div class="right-name">Limitació</div><div class="right-desc">Sol·licitar que limitem el tractament mentre resolem una incidència.</div></div>
+      <div class="right-item"><div class="right-name">Portabilitat</div><div class="right-desc">Rebre les teves dades en format estructurat i llegible per màquina.</div></div>
+    </div>
+    <p>Per exercir qualsevol d'aquests drets, escriu a <a href="mailto:hola@microplastics.cat">hola@microplastics.cat</a>. Respondrem en un termini màxim de <strong>30 dies</strong>.</p>
+  </section>
+
+  <section class="policy-section" id="seguretat">
+    <h2>8. Seguretat</h2>
+    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.4rem; margin: 0.5rem 0 1rem 0;">
+      <li style="display:flex; gap:0.75rem; font-size:0.92rem;"><span style="color:var(--accent)">→</span> Totes les comunicacions xifrades amb TLS (HTTPS)</li>
+      <li style="display:flex; gap:0.75rem; font-size:0.92rem;"><span style="color:var(--accent)">→</span> Les dades emmagatzemades a Brevo es protegeixen amb xifrat en repòs</li>
+      <li style="display:flex; gap:0.75rem; font-size:0.92rem;"><span style="color:var(--accent)">→</span> Doble opt-in per verificar la titularitat del correu electrònic</li>
+      <li style="display:flex; gap:0.75rem; font-size:0.92rem;"><span style="color:var(--accent)">→</span> Accés restringit a les dades: únicament el responsable del tractament</li>
+    </ul>
+  </section>
+
+  <section class="policy-section" id="menors">
+    <h2>9. Menors d'edat</h2>
+    <p>Aquest lloc web no va adreçat a menors de 14 anys. No recollim conscientment dades personals de menors. Si ets pare, mare o tutor i creus que un menor ha proporcionat dades, posa't en contacte amb nosaltres a <a href="mailto:hola@microplastics.cat">hola@microplastics.cat</a> per procedir a la seva eliminació immediata.</p>
+  </section>
+
+  <section class="policy-section" id="cookies">
+    <h2>10. Galetes (cookies)</h2>
+    <p>Aquest lloc web <strong>no fa servir galetes</strong> de seguiment, analítica ni publicitat. No hi ha cap script de tercers que rastreja la teva navegació.</p>
+  </section>
+
+  <section class="policy-section" id="canvis">
+    <h2>11. Canvis en aquesta política</h2>
+    <p>Ens reservem el dret d'actualitzar aquesta política de privacitat per adaptar-la a canvis normatius o en el funcionament del lloc web. En cas de canvis substancials, ho notificarem als subscriptors de la newsletter amb un mínim de 15 dies d'antelació.</p>
+  </section>
+
+  <section class="policy-section" id="contacte">
+    <h2>12. Contacte i reclamacions</h2>
+    <div class="info-box">
+      <p><strong>Correu electrònic:</strong> <a href="mailto:hola@microplastics.cat">hola@microplastics.cat</a><br/>
+      Respondrem en un termini màxim de 30 dies naturals.</p>
+    </div>
+    <p>Si consideres que el tractament de les teves dades no és conforme al RGPD, tens dret a presentar una reclamació davant l'<strong>Agència Espanyola de Protecció de Dades (AEPD)</strong>: <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a></p>
+  </section>
+
+</main>
