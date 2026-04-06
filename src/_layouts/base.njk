@@ -9,8 +9,18 @@
   {% if noindex %}<meta name="robots" content="noindex" />{% endif %}
   <meta property="og:title" content="{{ og_title if og_title else title }}" />
   <meta property="og:description" content="{{ og_description if og_description else description }}" />
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="{{ 'article' if schema_type == 'Article' else 'website' }}" />
   <meta property="og:url" content="https://microplastics.cat{{ page.url }}" />
+  <meta property="og:locale" content="ca_ES" />
+  <meta property="og:site_name" content="microplastics.cat" />
+  <meta property="og:image" content="https://microplastics.cat{% if og_image %}{{ og_image }}{% else %}/assets/og-default.jpg{% endif %}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="{{ og_title if og_title else title }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ og_title if og_title else title }}" />
+  <meta name="twitter:description" content="{{ og_description if og_description else description }}" />
+  <meta name="twitter:image" content="https://microplastics.cat{% if og_image %}{{ og_image }}{% else %}/assets/og-default.jpg{% endif %}" />
   <link rel="canonical" href="https://microplastics.cat{{ page.url }}" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -975,6 +985,36 @@
     .faq-answer p { color: var(--mid); max-width: none; margin-bottom: 0.75rem; }
     .faq-answer p:last-child { margin-bottom: 0; }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://microplastics.cat/#website",
+    "url": "https://microplastics.cat/",
+    "name": "microplastics.cat",
+    "description": "Tot el que cal saber sobre els microplàstics",
+    "inLanguage": "ca"
+  }
+  </script>
+
+  {% if schema_type %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "{{ schema_type }}",
+    "@id": "https://microplastics.cat{{ page.url }}#{{ schema_type | lower }}",
+    "url": "https://microplastics.cat{{ page.url }}",
+    "name": "{{ title }}",
+    "description": "{{ description }}",
+    "inLanguage": "ca",
+    "isPartOf": { "@id": "https://microplastics.cat/#website" }{% if schema_type == "Article" %},
+    "datePublished": "{{ date_published }}",
+    "dateModified": "{{ date_modified if date_modified else date_published }}",
+    "author": { "@type": "Organization", "name": "microplastics.cat" }{% endif %}
+  }
+  </script>
+  {% endif %}
 </head>
 <body>
 
