@@ -123,7 +123,7 @@ schema_type: "Blog"
       </form>
       <label class="gdpr-label">
         <input type="checkbox" id="nl-gdpr" required />
-        <span>He llegit i accepto la <a href="/politica-de-privacitat/">política de privacitat</a>. Consento que el meu correu s'emmagatzemi a Brevo per rebre la newsletter.</span>
+        <span>He llegit i accepto la <a href="/politica-de-privacitat/">política de privacitat</a>. Consento que el meu correu s'emmagatzemi a Acumbamail per rebre la newsletter.</span>
       </label>
       <div id="nl-message" class="nl-message" aria-live="polite"></div>
       <p class="newsletter-note">Protegit per doble opt-in · Pots donar-te de baixa en qualsevol moment · RGPD compliant</p>
@@ -159,8 +159,8 @@ schema_type: "Blog"
 </section>
 
 <script>
-  const BREVO_API_KEY = 'YOUR_BREVO_API_KEY_HERE';
-  const BREVO_LIST_ID = 0;
+  const ACUMBAMAIL_AUTH_TOKEN = 'YOUR_ACUMBAMAIL_AUTH_TOKEN_HERE';
+  const ACUMBAMAIL_LIST_ID    = 0;
 
   async function handleSubscribe(e) {
     e.preventDefault();
@@ -181,21 +181,27 @@ schema_type: "Blog"
     msg.className = 'nl-message';
 
     try {
-      const res = await fetch('https://api.brevo.com/v3/contacts', {
-        method: 'POST',
-        headers: { 'accept': 'application/json', 'content-type': 'application/json', 'api-key': BREVO_API_KEY },
-        body: JSON.stringify({ email, listIds: [BREVO_LIST_ID], updateEnabled: true,
-          attributes: { GDPR_CONSENT: true, GDPR_CONSENT_DATE: new Date().toISOString(), GDPR_SOURCE: 'microplastics.cat blog' } }),
+      const body = new URLSearchParams({
+        auth_token:            ACUMBAMAIL_AUTH_TOKEN,
+        list_id:               ACUMBAMAIL_LIST_ID,
+        'merge_fields[email]': email,
+        double_optin:          '1',
+        response_type:         'json',
       });
-      if (res.status === 201 || res.status === 204) {
+
+      const res = await fetch('https://acumbamail.com/api/1/addSubscriber/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
+      });
+
+      if (res.status === 201 || res.status === 200) {
         msg.textContent = 'Fet! Revisa el teu correu per confirmar la subscripció.';
         msg.className = 'nl-message success';
         document.getElementById('nl-email').value = '';
         document.getElementById('nl-gdpr').checked = false;
-      } else if (res.status === 400) {
-        const data = await res.json();
-        if (data.code === 'duplicate_parameter') { msg.textContent = 'Aquest correu ja estava subscrit. Gràcies!'; msg.className = 'nl-message success'; }
-        else throw new Error(data.message);
+      } else if (res.status === 401) {
+        throw new Error('Error d\'autenticació');
       } else throw new Error('Error inesperat');
     } catch (err) {
       msg.textContent = 'Alguna cosa ha anat malament. Escriu-nos a hola@microplastics.cat';
