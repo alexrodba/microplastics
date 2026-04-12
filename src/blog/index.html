@@ -117,15 +117,31 @@ schema_type: "Blog"
       <div class="section-label" style="justify-content: center;">Mantén-te informat</div>
       <h2>Rep els nous articles</h2>
       <p>Un correu al mes. Novetats científiques, regulació europea, i accions concretes que pots prendre. Sense spam, sense cessions de dades.</p>
-      <form class="newsletter-form" id="newsletter-form" onsubmit="handleSubscribe(event)">
-        <input type="email" id="nl-email" placeholder="el.teu@correu.cat" required aria-label="Adreça de correu electrònic" />
+      <form action="https://acumbamail.com/newform/subscribe/oxEK4ktFGBrvaWmxiDJqDC/62147/?iframe=1"
+            target="acm_result_62147"
+            method="post"
+            class="newsletter-form"
+            id="newsletter-form"
+            onsubmit="return checkGdprConsent()">
+        <input type="email" name="email_1"
+               placeholder="el.teu@correu.cat" required autocomplete="email"
+               aria-label="Adreça de correu electrònic" />
         <button type="submit" id="nl-btn">Subscriu-me</button>
+        <!-- Spam honeypot fields — do not remove -->
+        <input type="text"     name="a1277065c" tabindex="-1" value=""   style="position:absolute;left:-4900px;" aria-hidden="true" autocomplete="off"/>
+        <input type="email"    name="b1277065c" tabindex="-1" value=""   style="position:absolute;left:-5000px;" aria-hidden="true" autocomplete="off"/>
+        <input type="checkbox" name="c1277065c" tabindex="-1"            style="position:absolute;left:-5100px;" aria-hidden="true" autocomplete="off"/>
+        <input type="hidden" name="ok_redirect" value="">
       </form>
       <label class="gdpr-label">
-        <input type="checkbox" id="nl-gdpr" required />
+        <input type="checkbox" id="nl-gdpr" />
         <span>He llegit i accepto la <a href="/politica-de-privacitat/">política de privacitat</a>. Consento que el meu correu s'emmagatzemi a Acumbamail per rebre la newsletter.</span>
       </label>
       <div id="nl-message" class="nl-message" aria-live="polite"></div>
+      <iframe name="acm_result_62147" id="acm_result_62147"
+              title="Resultat de la subscripció"
+              style="display:none;width:100%;max-width:420px;height:56px;border:0;margin-top:0.5rem;background:transparent;"
+              loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       <p class="newsletter-note">Protegit per doble opt-in · Pots donar-te de baixa en qualsevol moment · RGPD compliant</p>
     </div>
   </div>
@@ -159,56 +175,18 @@ schema_type: "Blog"
 </section>
 
 <script>
-  const ACUMBAMAIL_AUTH_TOKEN = 'YOUR_ACUMBAMAIL_AUTH_TOKEN_HERE';
-  const ACUMBAMAIL_LIST_ID    = 0;
-
-  async function handleSubscribe(e) {
-    e.preventDefault();
-    const email = document.getElementById('nl-email').value.trim();
-    const gdpr  = document.getElementById('nl-gdpr').checked;
-    const btn   = document.getElementById('nl-btn');
-    const msg   = document.getElementById('nl-message');
-
-    if (!gdpr) {
+  // ── NEWSLETTER — Acumbamail embed ──
+  function checkGdprConsent() {
+    const gdpr = document.getElementById('nl-gdpr');
+    const msg  = document.getElementById('nl-message');
+    if (!gdpr.checked) {
       msg.textContent = "Has d'acceptar la política de privacitat per continuar.";
       msg.className = 'nl-message error';
-      return;
+      return false;
     }
-
-    btn.textContent = 'Enviant...';
-    btn.disabled = true;
     msg.textContent = '';
     msg.className = 'nl-message';
-
-    try {
-      const body = new URLSearchParams({
-        auth_token:            ACUMBAMAIL_AUTH_TOKEN,
-        list_id:               ACUMBAMAIL_LIST_ID,
-        'merge_fields[email]': email,
-        double_optin:          '1',
-        response_type:         'json',
-      });
-
-      const res = await fetch('https://acumbamail.com/api/1/addSubscriber/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body,
-      });
-
-      if (res.status === 201 || res.status === 200) {
-        msg.textContent = 'Fet! Revisa el teu correu per confirmar la subscripció.';
-        msg.className = 'nl-message success';
-        document.getElementById('nl-email').value = '';
-        document.getElementById('nl-gdpr').checked = false;
-      } else if (res.status === 401) {
-        throw new Error('Error d\'autenticació');
-      } else throw new Error('Error inesperat');
-    } catch (err) {
-      msg.textContent = 'Alguna cosa ha anat malament. Escriu-nos a hola@microplastics.cat';
-      msg.className = 'nl-message error';
-    } finally {
-      btn.textContent = 'Subscriu-me';
-      btn.disabled = false;
-    }
+    document.getElementById('acm_result_62147').style.display = 'block';
+    return true;
   }
 </script>
