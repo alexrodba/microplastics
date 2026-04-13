@@ -365,8 +365,7 @@ schema_type: "WebPage"
               target="acm_result_62147"
               method="post"
               class="newsletter-form"
-              id="newsletter-form"
-              onsubmit="return checkGdprConsent()">
+              id="newsletter-form">
           <input type="email" name="email_1"
                  placeholder="el.teu@correu.cat" required autocomplete="email"
                  aria-label="Adreça de correu electrònic" />
@@ -403,19 +402,19 @@ schema_type: "WebPage"
     });
 
     // ── NEWSLETTER — Acumbamail embed ──
-    function checkGdprConsent() {
+    document.getElementById('newsletter-form').addEventListener('submit', function(e) {
       const gdpr = document.getElementById('nl-gdpr');
       const msg  = document.getElementById('nl-message');
       if (!gdpr.checked) {
+        e.preventDefault();
         msg.textContent = "Has d'acceptar la política de privacitat per continuar.";
         msg.className = 'nl-message error';
-        return false;
+        return;
       }
       msg.textContent = '';
       msg.className = 'nl-message';
       document.getElementById('acm_result_62147').style.display = 'block';
-      return true;
-    }
+    });
 
     // ── SMOOTH NAV HIGHLIGHT ──
     const sections = document.querySelectorAll('section[id]');
