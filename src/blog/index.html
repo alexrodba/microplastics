@@ -117,8 +117,7 @@ schema_type: "Blog"
       <div class="section-label" style="justify-content: center;">Mantén-te informat</div>
       <h2>Rep els nous articles</h2>
       <p>Un correu al mes. Novetats científiques, regulació europea, i accions concretes que pots prendre. Sense spam, sense cessions de dades.</p>
-      <form action="https://acumbamail.com/newform/subscribe/oxEK4ktFGBrvaWmxiDJqDC/62147/?iframe=1"
-            target="acm_result_62147"
+      <form action="https://acumbamail.com/newform/subscribe/oxEK4ktFGBrvaWmxiDJqDC/62147/"
             method="post"
             class="newsletter-form"
             id="newsletter-form">
@@ -137,10 +136,6 @@ schema_type: "Blog"
         <span>He llegit i accepto la <a href="/politica-de-privacitat/">política de privacitat</a>. Consento que el meu correu s'emmagatzemi a Acumbamail per rebre la newsletter.</span>
       </label>
       <div id="nl-message" class="nl-message" aria-live="polite"></div>
-      <iframe name="acm_result_62147" id="acm_result_62147"
-              title="Resultat de la subscripció"
-              style="display:none;width:100%;max-width:420px;height:56px;border:0;margin-top:0.5rem;background:transparent;"
-              loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       <p class="newsletter-note">Protegit per doble opt-in · Pots donar-te de baixa en qualsevol moment · RGPD compliant</p>
     </div>
   </div>
@@ -174,18 +169,31 @@ schema_type: "Blog"
 </section>
 
 <script>
-  // ── NEWSLETTER — Acumbamail embed ──
+  // ── NEWSLETTER — Acumbamail fetch ──
   document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+    e.preventDefault();
     const gdpr = document.getElementById('nl-gdpr');
     const msg  = document.getElementById('nl-message');
+    const btn  = document.getElementById('nl-btn');
     if (!gdpr.checked) {
-      e.preventDefault();
       msg.textContent = "Has d'acceptar la política de privacitat per continuar.";
       msg.className = 'nl-message error';
       return;
     }
+    btn.disabled = true;
     msg.textContent = '';
     msg.className = 'nl-message';
-    document.getElementById('acm_result_62147').style.display = 'block';
-  });
+    const data = new FormData(this);
+    fetch(this.action, { method: 'POST', body: data, mode: 'no-cors' })
+      .then(() => {
+        msg.textContent = "Gràcies! Revisa el teu correu per confirmar la subscripció.";
+        msg.className = 'nl-message success';
+        this.reset();
+        btn.disabled = false;
+      })
+      .catch(() => {
+        msg.textContent = "Alguna cosa ha anat malament. Torna-ho a intentar.";
+        msg.className = 'nl-message error';
+        btn.disabled = false;
+      });
 </script>
