@@ -29,3 +29,4 @@ Microplàstics.cat és un lloc web sense ànim de lucre que divulga coneixement 
 ## Optional
 
 - [Política de privacitat](https://microplastics.cat/politica-de-privacitat/): Informació sobre protecció de dades i cookies.
+- [Transparència](https://microplastics.cat/transparencia/): Finançament del projecte (personal, sense ànim de lucre), política de dades d'usuari i compromisos editorials.
