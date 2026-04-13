@@ -1,0 +1,31 @@
+# Microplàstics.cat
+
+> Recurs informatiu en català sobre els microplàstics: què són, d'on venen, com afecten la salut humana i el medi ambient, i com reduir-ne l'exposició. Conté articles científics, guies pràctiques i informació sobre regulació europea.
+
+Microplàstics.cat és un lloc web sense ànim de lucre que divulga coneixement científic sobre la contaminació per microplàstics en català. Tot el contingut és original i es basa en estudis científics revisats per experts.
+
+## Pàgines principals
+
+- [Inici](https://microplastics.cat/): Introducció als microplàstics, estadístiques clau i visió general del problema.
+- [Què són els microplàstics?](https://microplastics.cat/que-son-els-microplastics/): Definició, cronologia històrica, tipus (primaris i secundaris) i preguntes freqüents.
+- [Tipus de microplàstics](https://microplastics.cat/tipus-de-microplastics/): Classificació detallada per mida, origen i composició química.
+- [Fonts de contaminació](https://microplastics.cat/fonts-de-contaminacio/): D'on provenen els microplàstics: tèxtils, pneumàtics, envasos, cosmètics, etc.
+- [Microplàstics en el cos humà](https://microplastics.cat/microplastics-en-el-cos-huma/): Evidència científica sobre la presència de microplàstics a la sang, pulmons, placenta i cervell.
+- [Microplàstics a casa meva](https://microplastics.cat/microplastics-a-casa-meva/): Fonts d'exposició domèstica i consells per reduir-la.
+- [Microplàstics a Catalunya](https://microplastics.cat/microplastics-a-catalunya/): Situació específica a Catalunya: estudis locals, rius, platges i regulació autonòmica.
+- [Regulació europea](https://microplastics.cat/regulacio-europea/): Marc legal de la UE sobre microplàstics, restriccions REACH i directiva d'envasos.
+- [Com reduir els microplàstics](https://microplastics.cat/com-reduir-els-microplastics/): Guia pràctica amb canvis d'hàbits, alternatives als plàstics i acció col·lectiva.
+- [Investigació](https://microplastics.cat/investigacio/): Recull d'estudis científics i projectes de recerca rellevants.
+
+## Blog
+
+- [Impacte dels microplàstics en la salut humana](https://microplastics.cat/blog/impacte-microplastics-salut-humana/): Revisió de l'evidència científica sobre efectes en la salut.
+- [Microplàstics i risc cardiovascular](https://microplastics.cat/blog/microplastics-risc-cardiovascular/): Estudi sobre la relació entre microplàstics i malalties del cor.
+- [Microplàstics i trombosi cerebral](https://microplastics.cat/blog/microplastics-i-trombosi-cerebral/): Investigació sobre microplàstics en plaques arterials i risc d'ictus.
+- [Microplàstics al cervell (2024)](https://microplastics.cat/blog/microplastics-al-cervell-2024/): Descobriments recents sobre acumulació de microplàstics al teixit cerebral.
+- [IA per detectar microplàstics](https://microplastics.cat/blog/ia-per-detectar-microplastics/): Com la intel·ligència artificial ajuda a identificar i quantificar microplàstics.
+- [On comprar sense plàstics a Barcelona](https://microplastics.cat/blog/on-comprar-sense-plastics-barcelona/): Guia de botigues a granel i opcions sostenibles a Barcelona.
+
+## Optional
+
+- [Política de privacitat](https://microplastics.cat/politica-de-privacitat/): Informació sobre protecció de dades i cookies.
