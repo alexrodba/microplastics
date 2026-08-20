@@ -676,6 +676,18 @@ strong { color: var(--head); font-weight: 600; }
   letter-spacing: 0.05em;
 }
 
+.newsletter-guide {
+  font-size: 0.85rem;
+  color: var(--mid);
+  margin: 1.5rem auto 0 !important;
+}
+.newsletter-guide a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+.newsletter-guide a:hover { text-decoration: underline; }
+
 .gdpr-label {
   display: flex;
   align-items: flex-start;
@@ -1196,4 +1208,106 @@ footer {
   border-radius: 2px;
   margin-left: 0.4rem;
   vertical-align: middle;
+}
+
+/* ── ENLLAÇOS A ARTICLES RELACIONATS DEL BLOG ── */
+.related-link {
+  background: var(--bg2);
+  padding: 1.4rem 2rem;
+  display: block;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.related-link:hover { background: var(--bg3); }
+.related-link-tag {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.related-link h3 {
+  font-size: 1.05rem;
+  margin: 0.5rem 0 0;
+  color: var(--head);
+}
+
+/* ── ITEMS DE BIBLIOGRAFIA / REFERÈNCIES ── */
+.ref-item {
+  background: var(--bg2);
+  padding: 1.75rem;
+}
+.ref-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+.ref-head h3 {
+  font-size: 1rem;
+  margin: 0;
+  max-width: 42rem;
+}
+.ref-venue {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.ref-authors {
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem;
+}
+.ref-desc {
+  font-size: 0.9rem;
+  color: var(--mid);
+  margin: 0 0 1rem;
+}
+.ref-doi {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+.ref-doi:hover { text-decoration: underline; }
+
+/* ── ACCESSIBILITAT: RESPECTAR REDUCCIÓ DE MOVIMENT ──
+   Els usuaris que demanen menys moviment (prefers-reduced-motion)
+   veuen el contingut en el seu estat final, sense animacions ni transicions. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Forcem l'estat visible dels elements que apareixen amb scroll */
+  .reveal,
+  .reveal.visible,
+  .stat,
+  .stat.visible,
+  .type-card,
+  .type-card.visible,
+  .source-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition-delay: 0s !important;
+  }
+
+  /* Les barres d'escala s'omplen a l'instant, sense animació de creixement */
+  .scale-bar {
+    transition: none !important;
+  }
+
+  /* Aturem les animacions decoratives en bucle */
+  .float-particle {
+    animation: none !important;
+  }
 }
