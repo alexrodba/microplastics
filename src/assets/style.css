@@ -44,8 +44,10 @@ body::before {
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
 
-/* ── NAV ── */
-nav {
+/* ── NAV ──
+   Només la nav principal (fill directe del body); altres <nav>, com el
+   fil d'Ariadna, no han de quedar fixades a dalt de la pàgina. */
+body > nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
