@@ -8,6 +8,10 @@ eleventyExcludeFromCollections: true
 {%- if not page.data.noindex %}
   <url>
     <loc>https://microplastics.cat{{ page.url }}</loc>
+    {%- set _lastmod = page.data.date_modified or page.data.date_published %}
+    {%- if _lastmod %}
+    <lastmod>{{ _lastmod }}</lastmod>
+    {%- endif %}
     <changefreq>monthly</changefreq>
     <priority>{{ '1.0' if page.url == '/' else '0.8' }}</priority>
   </url>

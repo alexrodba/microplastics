@@ -44,8 +44,10 @@ body::before {
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
 
-/* ── NAV ── */
-nav {
+/* ── NAV ──
+   Només la nav principal (fill directe del body); altres <nav>, com el
+   fil d'Ariadna, no han de quedar fixades a dalt de la pàgina. */
+body > nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
@@ -1209,6 +1211,26 @@ footer {
   margin-left: 0.4rem;
   vertical-align: middle;
 }
+
+/* ── ACCESSIBILITAT: ENLLAÇ PER SALTAR AL CONTINGUT ──
+   Invisible fins que rep el focus del teclat; queda per sobre de la nav fixa. */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 200;
+  background: var(--accent);
+  color: #0a0e0f;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  padding: 0.6rem 1rem;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 1rem; }
+main:focus { outline: none; }
 
 /* ── ENLLAÇOS A ARTICLES RELACIONATS DEL BLOG ── */
 .related-link {
