@@ -68,7 +68,7 @@
   </script>
   {% endif %}
 
-  {% if page.url != "/" %}
+  {% if page.url != "/" and not noindex %}
   {%- set _crumb = (og_title if og_title else title) | replace(" | microplastics.cat", "") %}
   <script type="application/ld+json">
   {
