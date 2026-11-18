@@ -1,0 +1,28 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>microplastics.cat — Blog</title>
+  <subtitle>Novetats científiques, regulació i consells sobre microplàstics, en català.</subtitle>
+  <link href="https://microplastics.cat/feed.xml" rel="self" />
+  <link href="https://microplastics.cat/blog/" />
+  <id>https://microplastics.cat/blog/</id>
+  {%- set _latest = collections.post | last %}
+  <updated>{{ _latest.data.date_published }}T09:00:00Z</updated>
+  <author>
+    <name>microplastics.cat</name>
+    <uri>https://microplastics.cat/</uri>
+  </author>
+  {%- for post in collections.post | reverse %}
+  <entry>
+    <title>{{ post.data.og_title if post.data.og_title else post.data.title }}</title>
+    <link href="https://microplastics.cat{{ post.url }}" />
+    <id>https://microplastics.cat{{ post.url }}</id>
+    <published>{{ post.data.date_published }}T09:00:00Z</published>
+    <updated>{{ post.data.date_modified if post.data.date_modified else post.data.date_published }}T09:00:00Z</updated>
+    <summary>{{ post.data.description }}</summary>
+  </entry>
+  {%- endfor %}
+</feed>

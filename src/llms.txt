@@ -16,6 +16,7 @@ Microplàstics.cat és un lloc web sense ànim de lucre que divulga coneixement 
 - [Regulació europea](https://microplastics.cat/regulacio-europea/): Marc legal de la UE sobre microplàstics, restriccions REACH i directiva d'envasos.
 - [Com reduir els microplàstics](https://microplastics.cat/com-reduir-els-microplastics/): Guia pràctica amb canvis d'hàbits, alternatives als plàstics i acció col·lectiva.
 - [Investigació](https://microplastics.cat/investigacio/): Recull d'estudis científics i projectes de recerca rellevants.
+- [Referències](https://microplastics.cat/referencies/): Bibliografia consolidada de tots els estudis científics citats al lloc, amb autors, revista, any i enllaç al paper original (DOI).
 
 ## Blog
 
