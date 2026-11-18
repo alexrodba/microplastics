@@ -100,6 +100,8 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main">Salta al contingut</a>
+
   <!-- NAV -->
   <nav>
     <a href="/" class="nav-logo">microplastics.cat</a>
@@ -112,7 +114,9 @@
     </ul>
   </nav>
 
+  <main id="main" tabindex="-1">
   {{ content | safe }}
+  </main>
 
   <!-- FOOTER -->
   <footer>
